@@ -1,0 +1,105 @@
+<style>
+    .back-menu>a {
+        border-left: 0px!important;
+    }
+
+    .sidebar-menu>li {
+        cursor: pointer;
+    }
+</style>
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>Alexander Pierce</p>
+                <!-- Status -->
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+
+        <!-- search form (Optional) -->
+        <!-- <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+                </span>
+        </div>
+        </form>-->
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+
+            <!-- back menu -->
+            <!-- <li class="header">CUSTOM MENU</li> -->
+            <!-- <li class="back-menu "><a><i class="fa fa-chevron-left"></i> <span>Back</span></a></li>
+            <li class="treeview" routerLinkActive="active">
+                <a><i class="fa fa-link"></i> <span>Custom menu</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu" routerLinkActive="active">
+                    <li routerLinkActive="active"><a [routerLink]="['/dashboard', 'home']"><i class="fa fa-circle-o"></i> <span>Home</span></a></li>
+                    <li><a><i class="fa fa-circle-o"></i> <span>Link in level 2</span></a></li>
+                </ul>
+            </li> -->
+
+            <!-- dashboard menu -->
+            <li class="header">HEADER</li>
+            <ng-template ngFor let-item [ngForOf]="menuItems">
+
+                <ng-template [ngIf]="item.type!=='blind'">
+                    <li routerLinkActive="active" *ngIf="!item.items">
+                        <a [routerLink]="item.route" *ngIf="item.type!=='blind'"><i class="fa fa-{{item.icon}}"></i> <span>{{item.name}}</span></a>
+                    </li>
+                    <li routerLinkActive="active" *ngIf="item.items" class="treeview">
+                        <a><i class="fa fa-link"></i> <span>{{item.name}}</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <ng-template ngFor let-subItem [ngForOf]="item.items">
+                                <li routerLinkActive="active"><a [routerLink]="subItem.route"><i class="fa fa-{{subItem.icon}}"></i> <span>{{subItem.name}}</span></a></li>
+                            </ng-template>
+                        </ul>
+                    </li>
+                </ng-template>
+
+                <ng-template [ngIf]="item.type==='blind' && checkActive(item)">
+                    <li class="back-menu">
+                        <a><i class="fa fa-chevron-left"></i> <span>Back</span></a>
+                    </li>
+                    <ng-template ngFor let-blinditem [ngForOf]="item.items">
+                        <li routerLinkActive="active" *ngIf="!blinditem.items">
+                            <a [routerLink]="blinditem.route"><i class="fa fa-{{blinditem.icon}}"></i> <span>{{blinditem.name}}</span></a>
+                        </li>
+                        <li routerLinkActive="active" *ngIf="blinditem.items" class="treeview">
+                            <a><i class="fa fa-link"></i> <span>{{blinditem.name}}</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <ng-template ngFor let-subblinditem [ngForOf]="blinditem.items">
+                                    <li routerLinkActive="active"><a [routerLink]="subblinditem.route"><i class="fa fa-{{subblinditem.icon}}"></i> <span>{{subblinditem.name}}</span></a></li>
+                                </ng-template>
+                            </ul>
+                        </li>
+                    </ng-template>
+                </ng-template>
+
+            </ng-template>
+        </ul>
+        <!-- /.sidebar-menu -->
+    </section>
+</aside>

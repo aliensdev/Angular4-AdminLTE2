@@ -1,0 +1,15 @@
+<section class="content-header">
+    <h1>
+        <span id="page-header">Page Header</span>
+        <small id="page-header-description">Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <ng-template ngFor let-breadcrumb [ngForOf]="breadcrumbs" let-last = last>
+            <li *ngIf="breadcrumb.label.breadcrumb&&breadcrumb.url.substring(breadcrumb.url.length-1) == '/'||breadcrumb.label.breadcrumb&&last"
+        [ngClass]="{active: last}">
+                <a *ngIf="!last" [routerLink]="breadcrumb.url"><i class="fa fa-ol-o"></i> {{breadcrumb.label.breadcrumb}}</a>
+                <span *ngIf="last" [routerLink]="breadcrumb.url">{{breadcrumb.label.breadcrumb}}</span>
+            </li>
+        </ng-template>
+    </ol>
+</section>

@@ -1,0 +1,20 @@
+.btn-box-tool:hover {
+    background: white!important;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0px;
+}
+
+.box-tools {
+    > li:hover {
+        cursor: pointer;
+        color: #444;
+    }
+}
+
+.box-tools {
+    > li {
+        color: #777;
+    }
+}

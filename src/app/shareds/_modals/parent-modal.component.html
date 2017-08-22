@@ -1,0 +1,63 @@
+<div bsModal #parentModal="bs-modal" (onShown)="onShown()" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="parentModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog">
+
+        <div #parentContentModal class="modal-content">
+            <cBox [modal]="true" [scrollable]="true" (close)="close()">
+                <ng-template cBox-heading><i class="fa fa-font-awesome"></i> Parent modal</ng-template>
+                <div class="form-group">
+                    <label><i class="fa fa-font-awesome"></i>  Datepicker range</label>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 1</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 2</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 3</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 4</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 5</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 6</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 7</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 8</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 9</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 10</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 11</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 12</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 13</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 14</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 15</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 16</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 17</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 18</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 19</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 10</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 20</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 21</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 22</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 23</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 24</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 25</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 26</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 27</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 28</h1>
+                    <h1><i class="fa fa-font-awesome"></i> Tab 29</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>start date</label>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <cDatepicker language="th" [(ngModel)]="date_form_start" [start]="d_start" [end]="d_end"></cDatepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>end date</label>
+                            <cDatepicker [(ngModel)]="date_form_end" [start]="date_form_start" [end]="d_end"></cDatepicker>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                {{date_form_start}} | {{date_form_end}}
+                <ng-template cBox-footer>Footer</ng-template>
+            </cBox>
+        </div>
+    </div>
+</div>

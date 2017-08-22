@@ -1,0 +1,20 @@
+.nav-tabs-custom {
+    > .nav-tabs {
+        > li.tab-heading:hover {
+            cursor: pointer!important;
+        }
+    }
+}
+
+.text-muted :hover{
+    cursor: pointer;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0px;
+}
+
+.pull-right :hover {
+    color: #444;
+    cursor: pointer;
+}

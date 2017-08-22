@@ -1,0 +1,164 @@
+<page-header #pageHeader header="Page Header" description="Page Description"></page-header>
+<div class="row">
+    <div class="col-md-6">
+        <cTab [justified]="false">
+            <cTab-item>
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Checkbox</ng-template>
+                <div class="form-group">
+                    <label>Radio</label>
+                    <ng-template ngFor let-list [ngForOf]="lists_checkbox">
+                        <cCheckbox [(ngModel)]="list.selected">
+                            {{list.text}}
+                        </cCheckbox>
+                    </ng-template>
+                </div>
+                <hr> {{lists_checkbox | json}}
+            </cTab-item>
+            <cTab-item>
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Radio</ng-template>
+                <div class="form-group">
+                    <label>Radio</label>
+                    <ng-template ngFor let-list [ngForOf]="lists_radio">
+                        <cRadio name="name" [(ngModel)]="selected_radio" [value]="list">
+                            {{list.text}}
+                        </cRadio>
+                    </ng-template>
+                </div>
+                <hr> {{selected_radio | json}}
+            </cTab-item>
+            <cTab-item [active]="true">
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Select</ng-template>
+                <div class="form-group">
+                    <label>Select</label>
+                    <cSelect [(ngModel)]="selected_dropdown" [lists]="lists_radio"></cSelect>
+                </div>
+                <hr> {{ selected_dropdown | json}}
+            </cTab-item>
+            <cTab-item>
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Textarea</ng-template>
+                <div class="form-group">
+                    <label>Textarea (auto resize)</label>
+                    <textarea cTextarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                </div>
+            </cTab-item>
+            <ng-template cTab-footer>Footer</ng-template>
+        </cTab>
+    </div>
+    <div class="col-md-6">
+        <cTab>
+            <cTab-item [active]="true">
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Modal</ng-template>
+                <button class="btn btn-primary" type="button" (click)="showParentModal()"> Open parent modal</button>
+                <parentModal #parentModal></parentModal>
+                <button class="btn btn-default" type="button" (click)="showTabModal()"> Open tab modal</button>
+                <tabModal #tabModal></tabModal>
+            </cTab-item>
+            <cTab-item>
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Datepicker</ng-template>
+                <div class="form-group">
+                    <label><i class="fa fa-font-awesome"></i>  Datepicker</label>
+                    <cDatepicker language="th" [(ngModel)]="date_form" [start]="d_start" [end]="d_end"></cDatepicker>
+                </div>
+                <hr> {{date_form}}
+            </cTab-item>
+            <cTab-item>
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Datepicker range</ng-template>
+                <div class="form-group">
+                    <label><i class="fa fa-font-awesome"></i>  Datepicker range</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>start date</label>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <cDatepicker language="th" [(ngModel)]="date_form_start" [start]="d_start" [end]="d_end"></cDatepicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>end date</label>
+                            <cDatepicker [(ngModel)]="date_form_end" [start]="date_form_start" [end]="d_end"></cDatepicker>
+                        </div>
+                    </div>
+                    <hr> {{date_form_start}} | {{date_form_end}}
+                </div>
+            </cTab-item>
+            <cTab-item>
+                <ng-template cTab-title><i class="fa fa-font-awesome"></i> Carousel</ng-template>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="http://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap" alt="First slide">
+
+                            <div class="carousel-caption">
+                                First Slide
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap" alt="Second slide">
+
+                            <div class="carousel-caption">
+                                Second Slide
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/900x500/f39c12/ffffff&text=I+Love+Bootstrap" alt="Third slide">
+
+                            <div class="carousel-caption">
+                                Third Slide
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="fa fa-angle-right"></span>
+                    </a>
+                </div>
+            </cTab-item>
+            <ng-template cTab-footer>Footer</ng-template>
+        </cTab>
+    </div>
+    <div class="col-md-6">
+        <cBox [modal]="false">
+            <ng-template cBox-heading><i class="fa fa-font-awesome"></i> Box</ng-template>
+            <ng-template cBox-tools>
+                <span dropdown>
+                    <i class="fa fa-gear" dropdownToggle></i>
+                    <ul *dropdownMenu class="dropdown-menu">
+                        <li *ngFor="let choice of items">
+                            <a class="dropdown-item" href="#"><i class="fa fa-font-awesome"></i> {{choice}}</a>
+                        </li>
+                    </ul>
+                </span>
+            </ng-template>
+            <div class="form-group">
+                <label><i class="fa fa-font-awesome"></i>  Text</label>
+                <input cValidate [(ngModel)]="text" type="text" class="form-control" placeholder="Enter ...">
+            </div>
+            <div class="form-group">
+                <label><i class="fa fa-font-awesome"></i>  Text</label>
+                <input cValidate type="text" class="form-control" placeholder="Enter ..." [success]="{isSuccess:true, text:'success!', help:'help success'}">
+            </div>
+            <div class="form-group">
+                <label><i class="fa fa-font-awesome"></i>  Text</label>
+                <input cValidate type="text" class="form-control" placeholder="Enter ..." [warning]="{isWarning:true, text:'warning!', help:'help warning'}">
+            </div>
+            <div class="form-group">
+                <label><i class="fa fa-font-awesome"></i>  Text</label>
+                <input cValidate type="text" class="form-control" placeholder="Enter ..." [error]="{isError:true, text:'error!', help:'help error'}">
+            </div>
+            <ng-template cBox-footer>
+                Footer <button class="btn btn-sm btn-primary pull-right btn-flat">Button</button>
+            </ng-template>
+        </cBox>
+    </div>
+</div>
