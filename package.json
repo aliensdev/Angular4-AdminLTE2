@@ -34,6 +34,7 @@
     "@types/jquery": "^3.2.11",
     "@types/moment": "^2.13.0",
     "@types/node": "^6.0.87",
+    "admin-lte": "^2.3.11",
     "bootstrap-datepicker": "^1.7.1",
     "bootstrap-sass": "^3.3.7",
     "codelyzer": "~3.0.1",
